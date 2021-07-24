@@ -1,0 +1,214 @@
+# lab03 , LAB03HW
+01. def AmHere(namee):
+    print('Hello !!!')
+    print(f'I\'m here {namee}!!!')
+name = input('Who are you going to call : ')
+AmHere(name)
+
+
+02.  from math import pi
+    n = int(input('How many Pi : '))
+    for i in range(n):
+        print(pi)
+03.  import math
+x = int(input("log2 of : "))
+print(math.ceil(math.log2(x)))        
+
+04.  from math import sin,cos,tan,pi
+
+x = int(input('Degree : '))
+print(f'sin : {sin(x*pi/180):.2f}')
+print(f'cos : {cos(x*pi/180):.2f}')
+print(f'tan : {tan(x*pi/180):.2f}')
+
+05.  text = input('Enter string : ')
+print(f'align --- {text:>20} --- right')
+print(f'align --- {text:<20} --- left')
+print(f'align --- {text:^20} --- center')
+
+06.  text = input('Dak fung : ')
+if 'i know i\'m bad' in text:
+    print('Find!!!')
+else:
+    print('Not Find...')
+    
+07.text = input()
+text = text.upper()
+if text[0] == text[len(text)-1]:
+    print(f'Yes\n{text[0]}')
+else:
+    print('No')
+    
+####################LAB03 HW
+
+
+01. import math
+def inputShape():
+    return int(input("Input Shape: "))
+def calculateSphere():
+    radius = int(input("Input radius(meter): "))
+    volume = 4 / 3 * math.pi * radius ** 3
+    print(f"The volume is {volume:.2f} cubic meter.")
+    return volume
+def calculateCone():
+    radius = int(input("Input radius(meter): "))
+    height = int(input("Input height(meter): "))
+    volume = 1 / 3 * math.pi * radius ** 2 * height
+    print(f"The volume is {volume:.2f} cubic meter.")
+    return volume
+def calculateCylinder():
+    radius = int(input("Input radius(meter): "))
+    height = int(input("Input height(meter): "))
+    volume = math.pi * radius ** 2 * height
+    print(f"The volume is {volume:.2f} cubic meter.")
+    return volume
+def calculatePrism():
+    width = int(input("Input width(meter): "))
+    length = int(input("Input length(meter): "))
+    height = int(input("Input height(meter): "))
+    volume = width * length * height
+    print(f"The volume is {volume:.2f} cubic meter.")
+    return volume
+def calculatePyramid():
+    width = int(input("Input width(meter): "))
+    length = int(input("Input length(meter): "))
+    height = int(input("Input height(meter): "))
+    volume = width * length * height / 3
+    print(f"The volume is {volume:.2f} cubic meter.")
+    return volume
+def calculatePrice(v):
+    price = int(input("Price(Bath) per 1 cubic meter: "))
+    print(f"The price is {price * v :.2f} Baht.")
+x = inputShape()
+volume = 0
+if x == 1:
+    volume = calculateSphere()
+elif x == 2:
+    volume = calculateCone()
+elif x == 3:
+    volume = calculateCylinder()
+elif x == 4:
+    volume = calculatePrism()
+elif x == 5:
+    volume = calculatePyramid()
+calculatePrice(volume)
+
+
+02. def Head(n):
+    print(" " + "o" * n)
+    for i in range(int(n / 2) - 1):
+        print(" " + "o" + " " * (n - 2) + "o")
+    print(" " + "o" * n)
+def Body(n):
+    for i in range(1, n):
+        if i % int(n / 2) == 0:
+            print("-" * (n // 2) + "||" + "-" * (n // 2))
+        else:
+            print(" " * (n // 2) + "||" + " " * (n // 2))
+def Leg(n):
+    for i in range(int(n / 2), 0, -1):
+        print(" " * i + "/" + "  " * (int(n / 2) - i) + "\\" + "" * i)
+x = int(input())
+Head(x)
+Body(x)
+Leg(x)
+
+03. def draw(n):
+    for i in range(n - 1):
+        print(" " * i + "*" + " " * (3 * n - 2 * i - 4) + '*')
+    print(" " * (n - 1) + "*" * n + " " * (n - 1))
+    if n > 2:
+        for i in range(1, n + 1):
+            if i % 2 == 0:
+                print(" " * (n - 1) + "*" + " " * (n - 2) + "*")
+    print(" " * (n - 1) + "*" * n + " " * (n - 1))
+    for i in range(n - 1):
+        print(" " * (n - 2 - i) + "*" + " " * (n + i * 2) + "*")
+
+draw(int(input()))
+
+04. import math
+
+
+def even_check(num):
+    if num % 2 == 0:
+        print("The number is even")
+    else:
+        print("The number is odd")
+
+
+def prime_check(num):
+    prime = True
+    if num % 2 != 0:
+        for i in range(3, int(math.sqrt(num)), 2):
+            if num % i == 0:
+                prime = False
+                break
+    else:
+        prime = False
+    if prime:
+        print("The number is prime")
+    else:
+        print("The number is not prime")
+n = int(input("Number : "))
+even_check(n)
+prime_check(n)
+
+05. def What(str):
+    album = True
+    for i in range(len(str)):
+        if 65 <= ord(str[i]) <= 90:
+            album = False
+            break
+    if album:
+        return "Album"
+    else:
+        return "Photobook"
+def SStatus():
+    global item
+    print(item)
+def RReal(str):
+    if ord(str[0]) == ord(str[len(str) - 1]) - 1:
+        return True
+    else:
+        return False
+code = input()
+item = What(code)
+SStatus()
+if RReal(code):
+    print("True")
+else:
+    print("False")
+    
+    
+06.
+def plus(total,value):
+    return total +value
+def minus(total,value):
+    return total-value
+
+n = int(input('How many food you have : '))
+total = 0
+for i in range(n):
+    x,y = input().split()
+    if y == '1':
+        total = plus(total,int(x))
+    elif y == '-1':
+        total = minus(total,int(x))
+print(f'{total}')
+
+07.
+n = int(input())
+for i in range(n - 1, -1, -1):
+    temp = ""
+    for j in range(i + 1):
+        pascal = 1
+        if j > i - j:
+            j = i - j
+        for k in range(0, j):
+            pascal *= i - k
+            pascal //= k + 1
+        temp += " " + str(pascal)
+    print(temp)
+
+
